@@ -13,4 +13,12 @@ node('docker-node'){
         }
         sh 'docker run -itd -p 82:80 --name myweb myimg:$BUILD_NUMBER'
     }
+   post{
+        always{
+            emailext to: "2310vicky@gmail.com",
+            subject: "Test Email1",
+            body: "Test",
+            attachLog: true
+        }
+    }
 }
